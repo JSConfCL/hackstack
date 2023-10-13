@@ -15,7 +15,7 @@ export default defineConfig({
       projectId: "dsb0by8m",
       dataset: "production",
       apiVersion: "2023-02-08",
-      useCdn: false,
+      useCdn: true,
       studioBasePath: "/admin",
     }),
     react(),
