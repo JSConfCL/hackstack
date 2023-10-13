@@ -1,0 +1,16 @@
+---
+import { sanityClient } from "sanity:client";
+import { marked, Renderer } from "marked";
+import { Markdown } from "astro-remote";
+import Heading from "./Heading.astro";
+
+const posts = await sanityClient.fetch(
+  `*[_type == "longMarkdownText" && slug.current == "landing-page-intro"]`,
+);
+const post = posts.at(0);
+if (!post) {
+  throw new Error("No posts found");
+}
+---
+
+<Markdown content={post.content} components={{ Heading }} />

@@ -1,0 +1,18 @@
+---
+const { as: Component, href, ...rest } = Astro.props;
+
+console.log({ rest, Component, href });
+---
+
+<Component
+  class="font-bold"
+  class:list={{
+    "text-5xl": Component === "h1",
+    "text-4xl": Component === "h2",
+    "text-3xl": Component === "h3",
+    "text-2xl": Component === "h4",
+    "text-xl": Component === "h5",
+  }}
+>
+  <slot />
+</Component>
