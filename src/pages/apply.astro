@@ -3,32 +3,17 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <script async src="https://tally.so/widgets/embed.js"></script>
-
-<style>
-  html {
-    margin: 0;
-    height: 100%;
-    overflow: hidden;
-  }
-  iframe {
-    display: block; /* iframes are inline by default */
-    background: transparent;
-    border: none; /* Reset default border */
-    height: 100vh; /* Viewport-relative units */
-    width: 100vw;
-    margin: 0;
-  }
-</style>
 <Layout title="Welcome to Astro.">
   <main
     id="main"
-    class="m-auto max-w-xl text-white text-lg leading-loose flex flex-col gap-10 transition-all ease-in-out duration-300 pt-10"
+    class="m-auto w-full text-white text-lg leading-loose flex flex-col gap-10 transition-all ease-in-out duration-300"
   >
     <section
       class="translate-y-5 transition-all ease-in delay-700 duration-700 opacity-0"
     >
       <div class="flex">
         <iframe
+          class="block bg-transparent border-0 h-screen w-screen m-0"
           data-tally-src="https://tally.so/r/nP9YM0?transparentBackground=1"
           title="HackStack — Inscripción"></iframe>
       </div>
