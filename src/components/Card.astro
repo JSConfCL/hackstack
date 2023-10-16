@@ -1,28 +1,57 @@
 ---
 interface Props {
   title: string;
-  body: string;
-  href: string;
+  description?: string;
+  highlight: "red" | "green" | "blue" | "white";
+  icon: "money" | "slack" | "mail" | "resources" | "tickets" | "announcements";
 }
 
-const { href, title, body } = Astro.props;
+import {
+  PiggyBankIcon,
+  SlackIcon,
+  MailCheckIcon,
+  LibraryIcon,
+  TicketIcon,
+  MegaphoneIcon,
+} from "lucide-react";
+
+const { title, description, icon } = Astro.props;
+
+const Icons = {
+  money: PiggyBankIcon,
+  slack: SlackIcon,
+  mail: MailCheckIcon,
+  resources: LibraryIcon,
+  tickets: TicketIcon,
+  announcements: MegaphoneIcon,
+};
+
+const Icon = Icons[icon];
 ---
 
-<li
-  class="list-none flex p-0.5 bg-gray-800 rounded-xl transition-all ease-[cubic-bezier(0.22,1,0.36,1)] duration-600 shadow-inner group"
+<div
+  class="max-w-sm relative flex flex-col bg-gray-900 p-8 rounded-lg cursor-pointer transition-all duration-200 hover:shadow-xl"
 >
-  <a
-    href={href}
-    class="w-full text-white no-underline leading-7 py-6 px-6 rounded-xl bg-gray-800 opacity-80"
-  >
-    <h2
-      class="m-0 text-lg transition-all ease-[cubic-bezier(0.22,1,0.36,1)] duration-600 group-hover:text-[rgb(var(--accent-light))]"
+  <div class="p-3 w-fit mt-24 rounded-full bg-gray-800 border-gray-700 border">
+    <Icon strokeWidth={1} color="white" size="20" absoluteStrokeWidth />
+  </div>
+  <h3 class="z-10 relative mt-4 text-white font-semibold text-lg">
+    {title}
+  </h3>
+  <p class="z-10 relative mt-2 text-neutral-400 text-sm">{description}</p>
+  <div class="absolute inset-0 opacity-0">
+    <div
+      class="shine inset-0 bg-gradient-to-r from-green-400 to-blue-500 opacity-0 hover:opacity-10 transition-opacity duration-200 rounded-lg"
     >
-      {title}
-      <span>&rarr;</span>
-    </h2>
-    <p class="mt-2 mb-0">
-      {body}
-    </p>
-  </a>
-</li>
+    </div>
+    <div class="tiles">
+      {
+        /* You can loop through the tiles if you want to generate them dynamically */
+      }
+      <div class="tile tile-1 w-1/4 h-10 bg-green-100 opacity-20">test</div>
+      {/* Add more tiles here */}
+    </div>
+    <!-- <div class="line line-1 w-full h-px bg-gray-800"></div> -->
+    {/* Add more lines here */}
+  </div>
+</div>
