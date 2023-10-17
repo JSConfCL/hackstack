@@ -22,7 +22,7 @@ import AnimatedSection from "../components/AnimatedSection.astro";
 <Layout title="Welcome to HackStack">
   <main
     id="main"
-    class="m-auto text-white text-lg leading-loose flex flex-col gap-52 pt-0 md:pt-10 xl:pt-16 pb-[30vh] px-4"
+    class="m-auto text-white text-lg leading-loose flex flex-col gap-44 pt-0 md:pt-10 xl:pt-16 pb-[30vh] px-4"
   >
     <div class="m-auto max-w-xl flex flex-col gap-10">
       <Text />
@@ -80,22 +80,21 @@ import AnimatedSection from "../components/AnimatedSection.astro";
         />
       </AnimatedSection>
     </div>
+    <section class="translate-y-5 transition-all ease-in duration-700">
+      <div class="flex justify-center">
+        <a
+          href="/apply"
+          class="relative px-6 py-3 font-bold text-white rounded-lg group"
+        >
+          <span
+            class="absolute inset-0 w-full h-full transition duration-300 transform -translate-x-1 -translate-y-1 bg-purple-800 ease opacity-80 group-hover:translate-x-0 group-hover:translate-y-0"
+          ></span>
+          <span
+            class="absolute inset-0 w-full h-full transition duration-300 transform translate-x-1 translate-y-1 bg-pink-800 ease opacity-80 group-hover:translate-x-0 group-hover:translate-y-0 mix-blend-screen"
+          ></span>
+          <span class="relative">Únete aquí</span>
+        </a>
+      </div>
+    </section>
   </main>
-
-  <section class="translate-y-5 transition-all ease-in duration-700 opacity-0">
-    <div class="flex justify-center">
-      <a
-        href="/apply"
-        class="relative px-6 py-3 font-bold text-white rounded-lg group"
-      >
-        <span
-          class="absolute inset-0 w-full h-full transition duration-300 transform -translate-x-1 -translate-y-1 bg-purple-800 ease opacity-80 group-hover:translate-x-0 group-hover:translate-y-0"
-        ></span>
-        <span
-          class="absolute inset-0 w-full h-full transition duration-300 transform translate-x-1 translate-y-1 bg-pink-800 ease opacity-80 group-hover:translate-x-0 group-hover:translate-y-0 mix-blend-screen"
-        ></span>
-        <span class="relative">Únete aquí</span>
-      </a>
-    </div>
-  </section>
 </Layout>

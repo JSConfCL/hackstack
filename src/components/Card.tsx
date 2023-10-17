@@ -39,13 +39,14 @@ const Card = ({ icon, highlight, title, description }: Props) => {
       setShow(true);
     }
     const rect = ref.current?.getBoundingClientRect();
-    if (!rect) return;
+    if (!rect) {
+      return;
+    }
     const left = e.clientX - rect.left;
     const top = e.clientY - rect.top;
     setMousePositionRelativeToParent({ left, top });
   };
 
-  console.log("render");
   return (
     <div
       onMouseMove={onMouseMove}
