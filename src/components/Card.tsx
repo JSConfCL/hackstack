@@ -30,31 +30,50 @@ const Card = ({ icon, highlight, title, description }: Props) => {
   const Icon = Icons[icon];
 
   const [show, setShow] = React.useState(false);
+  const [isBeingPressed, setIsBeingPressed] = React.useState(false);
   const [mousePositionRelativeToParent, setMousePositionRelativeToParent] =
     React.useState<{ left: number; top: number } | null>(null);
   const ref = React.useRef<HTMLDivElement>(null);
-  const onMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    // get mouse poision relative to ref
-    if (!show) {
-      setShow(true);
-    }
-    const rect = ref.current?.getBoundingClientRect();
-    if (!rect) {
-      return;
-    }
-    const left = e.clientX - rect.left;
-    const top = e.clientY - rect.top;
-    setMousePositionRelativeToParent({ left, top });
-  };
+  const onMouseMove = React.useCallback(
+    (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      if (!show) {
+        setShow(true);
+      }
+      const rect = ref.current?.getBoundingClientRect();
+      if (!rect) {
+        return;
+      }
+      // Get mouse poision relative to ref
+      const left = e.clientX - rect.left;
+      const top = e.clientY - rect.top;
+      setMousePositionRelativeToParent({ left, top });
+    },
+    [],
+  );
 
   return (
     <div
-      onMouseMove={onMouseMove}
-      onMouseLeave={() => {
+      onPointerMove={onMouseMove}
+      onPointerDown={() => {
+        setIsBeingPressed(true);
+      }}
+      onPointerUp={() => {
+        setIsBeingPressed(false);
+      }}
+      onPointerLeave={() => {
+        setIsBeingPressed(false);
         setShow(false);
       }}
       ref={ref}
-      className="relative overflow-hidden max-w-sm h-full bg-gray-900 p-8 rounded-lg cursor-pointer transition-all duration-200 hover:shadow-xl hover:border-slate-800 border-transparent border border-solid "
+      className={classNames(
+        "relative overflow-hidden max-w-sm h-full bg-gray-900 p-8 rounded-lg cursor-pointer transition-all duration-200 hover:shadow-xl hover:border-slate-800 border-transparent border border-solid",
+        {
+          "selection:bg-red-500/20": highlight === "red",
+          "selection:bg-green-500/20": highlight === "green",
+          "selection:bg-blue-500/20": highlight === "blue",
+          "selection:bg-gray-500/20": highlight === "white",
+        },
+      )}
     >
       <div className="flex flex-col relative z-20">
         <div className="p-3 w-fit mt-20 rounded-full bg-gray-800 border-gray-700 border">
@@ -75,14 +94,26 @@ const Card = ({ icon, highlight, title, description }: Props) => {
             {
               "opacity-0": !show,
               "opacity-100": show,
+
+              // COLORS
               "from-pink-500/50 via-red-500/50 to-yellow-500/50":
-                highlight === "red",
-              "from-green-500/50 via-green-300/40 to-teal-500/50":
-                highlight === "green",
+                highlight === "red" && !isBeingPressed,
+              "from-green-500/50 via-green-300/50 to-teal-500/50":
+                highlight === "green" && !isBeingPressed,
               "from-blue-500/50 via-indigo-500/50 to-purple-500/50":
-                highlight === "blue",
+                highlight === "blue" && !isBeingPressed,
               "from-gray-500/50 via-gray-500/50 to-gray-500/50":
-                highlight === "white",
+                highlight === "white" && !isBeingPressed,
+
+              // COLORS WHEN CLICKING
+              "from-pink-500/60 via-red-500/60 to-yellow-500/60":
+                highlight === "red" && isBeingPressed,
+              "from-green-500/60 via-green-300/60 to-teal-500/60":
+                highlight === "green" && isBeingPressed,
+              "from-blue-500/60 via-indigo-500/60 to-purple-500/60":
+                highlight === "blue" && isBeingPressed,
+              "from-gray-500/60 via-gray-500/60 to-gray-500/60":
+                highlight === "white" && isBeingPressed,
             },
           )}
           style={{

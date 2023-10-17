@@ -10,7 +10,7 @@ export default {
         callout: ["Rock Salt", "Inter"],
       },
       animation: {
-        "spin-slow": "rotate ease-in-out 16s infinite",
+        "spin-slow": "rotate ease-in-out 45s infinite",
       },
       backgroundImage: {
         "custom-gradient":
