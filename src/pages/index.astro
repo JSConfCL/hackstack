@@ -22,65 +22,85 @@ import AnimatedSection from "../components/AnimatedSection.astro";
 <Layout title="Welcome to HackStack">
   <main
     id="main"
-    class="m-auto text-white text-lg leading-loose flex flex-col gap-44 pt-0 md:pt-10 xl:pt-16 pb-[30vh] px-4"
+    class="transition-all m-auto text-white text-lg leading-loose flex flex-col gap-48 pt-0 md:pt-10 xl:pt-16 pb-[30vh] px-4 overflow-x-hidden"
   >
     <div
       class="m-auto max-w-xl flex flex-col gap-10 selection:bg-purple-600 selection:text-white"
     >
       <Text />
     </div>
-    <div class="max-w-7xl w-full flex gap-8 flex-row flex-wrap justify-center">
-      <AnimatedSection>
-        <Card
-          client:load
-          icon="money"
-          highlight="red"
-          title="Financiamiento a Comunidades"
-          description="Concurso abierto por hasta CLP 1.000.000 para apoyar iniciativas de tu comunidad."
-        />
-      </AnimatedSection>
-      <AnimatedSection>
-        <Card
-          client:load
-          icon="slack"
-          highlight="green"
-          title="Slack privado de HackStack"
-          description="Acceso para 3 personas de tu comunidad al Slack Workspace Pro de HackStack, para que puedas apoyarte junto a otros líderes de comunidades."
-        />
-      </AnimatedSection>
-      <AnimatedSection>
-        <Card
-          client:load
-          icon="mail"
-          highlight="blue"
-          title="Gmail y Google Workspace gratis"
-          description="Trae tu propio dominio, y te daremos acceso hasta 10 cuentas de correo y google workspaces para facilitar la comunicación y el trabajo con tu equipo."
-        />
-      </AnimatedSection>
-      <AnimatedSection>
-        <Card
-          client:load
-          icon="resources"
-          highlight="white"
-          title="(Coming Soon) Recursos y Playbooks."
-        />
-      </AnimatedSection>
-      <AnimatedSection>
-        <Card
-          client:load
-          icon="tickets"
-          highlight="white"
-          title="(Coming Soon) Plataforma gratuita de manejo de eventos y usuarios."
-        />
-      </AnimatedSection>
-      <AnimatedSection>
-        <Card
-          client:load
-          icon="announcements"
-          highlight="white"
-          title="(Coming Soon) Plataforma gratuita de Newsletter para tu comunidad."
-        />
-      </AnimatedSection>
+    <div class="w-full px-8 flex flex-col justify-center">
+      <div class="max-w-2xl w-full m-auto">
+        <AnimatedSection>
+          <hr class="border-gray-500 border" />
+        </AnimatedSection>
+      </div>
+    </div>
+    <div class="max-w-7xl w-full flex flex-col gap-10">
+      <div
+        class="flex gap-8 flex-row flex-wrap justify-center selection:bg-purple-600"
+      >
+        <AnimatedSection>
+          <h2
+            class="transition-all text-2xl sm:text-3xl md:text-3xl xl:text-4xl text-center"
+          >
+            Conoce nuestras iniciativas
+          </h2>
+        </AnimatedSection>
+      </div>
+      <div class="flex gap-8 flex-row flex-wrap justify-center">
+        <AnimatedSection>
+          <Card
+            client:load
+            icon="money"
+            highlight="red"
+            title="Financiamiento a Comunidades"
+            description="Concurso abierto por hasta CLP 1.000.000 para apoyar iniciativas de tu comunidad."
+          />
+        </AnimatedSection>
+        <AnimatedSection>
+          <Card
+            client:load
+            icon="slack"
+            highlight="green"
+            title="Slack privado de HackStack"
+            description="Acceso para 3 personas de tu comunidad al Slack Workspace Pro de HackStack, para que puedas apoyarte junto a otros líderes de comunidades."
+          />
+        </AnimatedSection>
+        <AnimatedSection>
+          <Card
+            client:load
+            icon="mail"
+            highlight="blue"
+            title="Gmail & Google Workspace gratis"
+            description="Trae tu propio dominio, y te daremos acceso hasta 10 cuentas de correo y google workspaces para facilitar la comunicación y el trabajo con tu equipo."
+          />
+        </AnimatedSection>
+        <AnimatedSection>
+          <Card
+            client:load
+            icon="resources"
+            highlight="white"
+            title="(Coming Soon) Recursos y Playbooks."
+          />
+        </AnimatedSection>
+        <AnimatedSection>
+          <Card
+            client:load
+            icon="tickets"
+            highlight="white"
+            title="(Coming Soon) Plataforma gratuita de manejo de eventos y usuarios."
+          />
+        </AnimatedSection>
+        <AnimatedSection>
+          <Card
+            client:load
+            icon="announcements"
+            highlight="white"
+            title="(Coming Soon) Plataforma gratuita de Newsletter para tu comunidad."
+          />
+        </AnimatedSection>
+      </div>
     </div>
     <section class="translate-y-5 transition-all ease-in duration-700">
       <div class="flex justify-center">
