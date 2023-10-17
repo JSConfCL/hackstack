@@ -1,13 +1,102 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Text from "../components/IntroText.astro";
+import Card from "../components/Card";
+import AnimatedSection from "../components/AnimatedSection.astro";
 ---
+
+<style>
+  @keyframes rotate {
+    from {
+      rotate: 0deg;
+    }
+    50% {
+      scale: 1 1.66;
+    }
+    to {
+      rotate: 360deg;
+    }
+  }
+</style>
 
 <Layout title="Welcome to HackStack">
   <main
     id="main"
-    class="m-auto max-w-xl text-white text-lg leading-loose flex flex-col gap-10 transition-all ease-in-out duration-300 pt-0 md:pt-10 xl:pt-16 pb-[40vh] px-4"
+    class="m-auto text-white text-lg leading-loose flex flex-col gap-44 pt-0 md:pt-10 xl:pt-16 pb-[30vh] px-4"
   >
-    <Text />
+    <div
+      class="m-auto max-w-xl flex flex-col gap-10 selection:bg-purple-600 selection:text-white"
+    >
+      <Text />
+    </div>
+    <div class="max-w-7xl w-full flex gap-8 flex-row flex-wrap justify-center">
+      <AnimatedSection>
+        <Card
+          client:load
+          icon="money"
+          highlight="red"
+          title="Financiamiento a Comunidades"
+          description="Concurso abierto por hasta CLP 1.000.000 para apoyar iniciativas de tu comunidad."
+        />
+      </AnimatedSection>
+      <AnimatedSection>
+        <Card
+          client:load
+          icon="slack"
+          highlight="green"
+          title="Slack privado de HackStack"
+          description="Acceso para 3 personas de tu comunidad al Slack Workspace Pro de HackStack, para que puedas apoyarte junto a otros líderes de comunidades."
+        />
+      </AnimatedSection>
+      <AnimatedSection>
+        <Card
+          client:load
+          icon="mail"
+          highlight="blue"
+          title="Gmail y Google Workspace gratis"
+          description="Trae tu propio dominio, y te daremos acceso hasta 10 cuentas de correo y google workspaces para facilitar la comunicación y el trabajo con tu equipo."
+        />
+      </AnimatedSection>
+      <AnimatedSection>
+        <Card
+          client:load
+          icon="resources"
+          highlight="white"
+          title="(Coming Soon) Recursos y Playbooks."
+        />
+      </AnimatedSection>
+      <AnimatedSection>
+        <Card
+          client:load
+          icon="tickets"
+          highlight="white"
+          title="(Coming Soon) Plataforma gratuita de manejo de eventos y usuarios."
+        />
+      </AnimatedSection>
+      <AnimatedSection>
+        <Card
+          client:load
+          icon="announcements"
+          highlight="white"
+          title="(Coming Soon) Plataforma gratuita de Newsletter para tu comunidad."
+        />
+      </AnimatedSection>
+    </div>
+    <section class="translate-y-5 transition-all ease-in duration-700">
+      <div class="flex justify-center">
+        <a
+          href="/apply"
+          class="relative px-6 py-3 font-bold text-white rounded-lg group"
+        >
+          <span
+            class="absolute inset-0 w-full h-full transition duration-300 transform -translate-x-1 -translate-y-1 bg-purple-800 ease opacity-80 group-hover:translate-x-0 group-hover:translate-y-0"
+          ></span>
+          <span
+            class="absolute inset-0 w-full h-full transition duration-300 transform translate-x-1 translate-y-1 bg-pink-800 ease opacity-80 group-hover:translate-x-0 group-hover:translate-y-0 mix-blend-screen"
+          ></span>
+          <span class="relative">Únete aquí</span>
+        </a>
+      </div>
+    </section>
   </main>
 </Layout>

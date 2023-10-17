@@ -25,7 +25,9 @@
     "astro": "^3.2.4",
     "astro-portabletext": "^0.9.5",
     "astro-remote": "^0.2.4",
+    "classnames": "^2.3.2",
     "easymde": "^2.18.0",
+    "lucide-react": "^0.287.0",
     "marked": "^9.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -33,6 +35,7 @@
     "typescript": "^5.2.2"
   },
   "devDependencies": {
+    "@types/classnames": "^2.3.1",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0",
     "wrangler": "^3.12.0"
