@@ -1,9 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Text from "../components/IntroText.astro";
-import Card from "../components/Card.astro";
+import Card from "../components/Card";
 import AnimatedSection from "../components/AnimatedSection.astro";
 ---
+
+<style>
+  @keyframes rotate {
+    from {
+      rotate: 0deg;
+    }
+    50% {
+      scale: 1 1.66;
+    }
+    to {
+      rotate: 360deg;
+    }
+  }
+</style>
 
 <Layout title="Welcome to HackStack">
   <main
@@ -16,6 +30,7 @@ import AnimatedSection from "../components/AnimatedSection.astro";
     <div class="max-w-7xl w-full flex gap-8 flex-row flex-wrap justify-center">
       <AnimatedSection>
         <Card
+          client:load
           icon="money"
           highlight="red"
           title="Financiamiento a Comunidades"
@@ -24,6 +39,7 @@ import AnimatedSection from "../components/AnimatedSection.astro";
       </AnimatedSection>
       <AnimatedSection>
         <Card
+          client:load
           icon="slack"
           highlight="green"
           title="Slack privado de HackStack"
@@ -32,6 +48,7 @@ import AnimatedSection from "../components/AnimatedSection.astro";
       </AnimatedSection>
       <AnimatedSection>
         <Card
+          client:load
           icon="mail"
           highlight="blue"
           title="Gmail y Google Workspace gratis"
@@ -40,6 +57,7 @@ import AnimatedSection from "../components/AnimatedSection.astro";
       </AnimatedSection>
       <AnimatedSection>
         <Card
+          client:load
           icon="resources"
           highlight="white"
           title="(Coming Soon) Recursos y Playbooks."
@@ -47,6 +65,7 @@ import AnimatedSection from "../components/AnimatedSection.astro";
       </AnimatedSection>
       <AnimatedSection>
         <Card
+          client:load
           icon="tickets"
           highlight="white"
           title="(Coming Soon) Plataforma gratuita de manejo de eventos y usuarios."
@@ -54,30 +73,29 @@ import AnimatedSection from "../components/AnimatedSection.astro";
       </AnimatedSection>
       <AnimatedSection>
         <Card
+          client:load
           icon="announcements"
           highlight="white"
           title="(Coming Soon) Plataforma gratuita de Newsletter para tu comunidad."
         />
       </AnimatedSection>
     </div>
-
-    <section
-      class="translate-y-5 transition-all ease-in duration-700 opacity-0"
-    >
-      <div class="flex justify-center">
-        <a
-          href="/apply"
-          class="relative px-6 py-3 font-bold text-white rounded-lg group"
-        >
-          <span
-            class="absolute inset-0 w-full h-full transition duration-300 transform -translate-x-1 -translate-y-1 bg-purple-800 ease opacity-80 group-hover:translate-x-0 group-hover:translate-y-0"
-          ></span>
-          <span
-            class="absolute inset-0 w-full h-full transition duration-300 transform translate-x-1 translate-y-1 bg-pink-800 ease opacity-80 group-hover:translate-x-0 group-hover:translate-y-0 mix-blend-screen"
-          ></span>
-          <span class="relative">Únete aquí</span>
-        </a>
-      </div>
-    </section>
   </main>
+
+  <section class="translate-y-5 transition-all ease-in duration-700 opacity-0">
+    <div class="flex justify-center">
+      <a
+        href="/apply"
+        class="relative px-6 py-3 font-bold text-white rounded-lg group"
+      >
+        <span
+          class="absolute inset-0 w-full h-full transition duration-300 transform -translate-x-1 -translate-y-1 bg-purple-800 ease opacity-80 group-hover:translate-x-0 group-hover:translate-y-0"
+        ></span>
+        <span
+          class="absolute inset-0 w-full h-full transition duration-300 transform translate-x-1 translate-y-1 bg-pink-800 ease opacity-80 group-hover:translate-x-0 group-hover:translate-y-0 mix-blend-screen"
+        ></span>
+        <span class="relative">Únete aquí</span>
+      </a>
+    </div>
+  </section>
 </Layout>
