@@ -90,29 +90,29 @@ const Card = ({ icon, highlight, title, description }: Props) => {
         ))}
         <div
           className={classNames(
-            "absolute bg-gradient-to-br transition-opacity animate-spin-slow duration-500 ease-in-out filter blur-2xl w-16 h-24 translate-x-[-50%] translate-y-[-50%]",
+            "absolute bg-gradient-to-br transition-opacity  animate-spin-slow duration-500 ease-in-out filter blur-2xl w-16 h-24 translate-x-[-50%] translate-y-[-50%]",
             {
               "opacity-0": !show,
               "opacity-100": show,
 
               // COLORS
-              "from-pink-500/50 via-red-500/50 to-yellow-500/50":
+              "from-pink-500/60 via-red-500/60 to-yellow-500/60":
                 highlight === "red" && !isBeingPressed,
-              "from-green-500/50 via-green-300/50 to-teal-500/50":
+              "from-green-500/60 via-green-300/60 to-teal-500/60":
                 highlight === "green" && !isBeingPressed,
-              "from-blue-500/50 via-indigo-500/50 to-purple-500/50":
+              "from-blue-500/60 via-indigo-500/60 to-purple-500/60":
                 highlight === "blue" && !isBeingPressed,
-              "from-gray-500/50 via-gray-500/50 to-gray-500/50":
+              "from-gray-200/60 via-gray-white/60 to-gray-200/60":
                 highlight === "white" && !isBeingPressed,
 
               // COLORS WHEN CLICKING
-              "from-pink-500/60 via-red-500/60 to-yellow-500/60":
+              "from-pink-500/80 via-red-500/80 to-yellow-500/80":
                 highlight === "red" && isBeingPressed,
-              "from-green-500/60 via-green-300/60 to-teal-500/60":
+              "from-green-500/80 via-green-300/80 to-teal-500/80":
                 highlight === "green" && isBeingPressed,
-              "from-blue-500/60 via-indigo-500/60 to-purple-500/60":
+              "from-blue-500/80 via-indigo-500/80 to-purple-500/80":
                 highlight === "blue" && isBeingPressed,
-              "from-gray-500/60 via-gray-500/60 to-gray-500/60":
+              "from-gray-200/80 via-white/80 to-gray-200/80":
                 highlight === "white" && isBeingPressed,
             },
           )}
