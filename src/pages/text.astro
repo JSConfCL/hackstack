@@ -4,12 +4,13 @@ import TextBlock from "../components/IntroText.astro";
 import AnimatedSection from "../components/AnimatedSection.astro";
 import Iniciativas from "../components/Iniciativas.astro";
 import CTA from "../components/CTA.astro";
+import FancyIcon from "../components/FancyIcon.astro";
 ---
 
 <Layout title="Welcome to HackStack">
   <main
     id="main"
-    class="w-full transition-all m-auto text-white text-lg leading-loose flex flex-col gap-48 pt-28 md:pt-36 xl:pt-44 pb-[30vh] px-4 overflow-x-hidden"
+    class="w-full transition-all m-auto text-white text-lg leading-loose flex flex-col gap-48 pt-28 md:pt-36 xl:pt-44 pb-[10vh] px-4 overflow-x-hidden"
   >
     <div
       class="m-auto max-w-xl w-full flex flex-col gap-10 selection:bg-purple-600 selection:text-white"
@@ -29,6 +30,13 @@ import CTA from "../components/CTA.astro";
       </div>
     </div>
     <Iniciativas />
-    <CTA />
+    <div class="flex flex-col gap-12">
+      <CTA />
+      <AnimatedSection>
+        <div class="justify-center items-center flex opacity-10">
+          <FancyIcon />
+        </div>
+      </AnimatedSection>
+    </div>
   </main>
 </Layout>

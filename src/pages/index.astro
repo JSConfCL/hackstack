@@ -3,31 +3,41 @@ import Layout from "../layouts/Layout.astro";
 import AnimatedSection from "../components/AnimatedSection.astro";
 import Tldr from "../components/tldr.astro";
 import FancyAnchor from "../components/FancyAnchor.astro";
+import FancyIcon from "../components/FancyIcon.astro";
 ---
 
 <Layout title="Welcome to HackStack">
   <main
     id="main"
-    class="w-full transition-all m-auto selection:bg-purple-600 selection:text-white text-white leading-loose flex flex-col gap-16 pt-[30vh] pb-[30vh] px-4 overflow-x-hidden"
+    class="w-full transition-all m-auto items-center selection:bg-purple-600 selection:text-white text-white leading-loose flex flex-col pt-[30vh] pb-[30vh] px-4 overflow-x-hidden"
   >
-    <div
-      class="m-auto max-w-xl w-full flex flex-col"
-      transition:name="hero"
-      transition:animate="initial"
-    >
-      <AnimatedSection>
-        <h1 class="text-6xl font-bold font-callout">Hey.</h1>
-      </AnimatedSection>
-    </div>
-    <div class="m-auto max-w-xl w-full flex flex-col">
-      <AnimatedSection>
-        <Tldr />
-      </AnimatedSection>
-    </div>
-    <div class="m-auto max-w-xl w-full flex flex-col">
-      <AnimatedSection>
-        <FancyAnchor link="/text" content="Conoce más" />
-      </AnimatedSection>
+    <div class="flex flex-col md:flex-row gap-16 px-8">
+      <div class="flex flex-col gap-12">
+        <div
+          class="m-auto max-w-xl w-full flex flex-col"
+          transition:name="hero"
+          transition:animate="initial"
+        >
+          <AnimatedSection>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold font-callout">
+              HACKSTACK.
+            </h1>
+          </AnimatedSection>
+        </div>
+        <div class="m-auto max-w-xl w-full flex flex-col">
+          <AnimatedSection>
+            <Tldr />
+          </AnimatedSection>
+        </div>
+        <div class="m-auto max-w-xl w-full flex flex-col">
+          <AnimatedSection>
+            <FancyAnchor link="/text" content="Conoce más" />
+          </AnimatedSection>
+        </div>
+      </div>
+      <div class="justify-center items-center flex">
+        <FancyIcon />
+      </div>
     </div>
   </main>
 </Layout>

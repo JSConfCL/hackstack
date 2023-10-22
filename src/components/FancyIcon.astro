@@ -1,0 +1,25 @@
+---
+import Capa1 from "./logo/Capa 1.svg?raw";
+import Capa2 from "./logo/Capa 2.svg?raw";
+import Capa3 from "./logo/Capa 3.svg?raw";
+---
+
+<div class="relative group/fancy-logo w-[240px] h-80 opacity-90">
+  <div class="h-full w-full relative">
+    <div
+      class="transition-all will-change-contents duration-700 w-full absolute left-0 top-[25px] group-hover/fancy-logo:-translate-y-4"
+    >
+      <Fragment set:html={Capa1} />
+    </div>
+    <div
+      class="transition-all will-change-contents duration-700 w-full absolute left-0 top-[130px] group-hover/fancy-logo:-translate-y-2"
+    >
+      <Fragment set:html={Capa2} />
+    </div>
+    <div
+      class="transition-all will-change-contents duration-700 w-full absolute left-0 top-[190px] group-hover/fancy-logo:translate-y-1"
+    >
+      <Fragment set:html={Capa3} />
+    </div>
+  </div>
+</div>
