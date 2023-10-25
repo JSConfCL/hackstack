@@ -50,10 +50,24 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <ViewTransitions />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:url" content="https://hackstack.foundation" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="HackStack - Integrando e Impulsando Comunidades."
+    />
+    <meta
+      property="og:description"
+      content="Únete a HackStack. Conecta con otras comunidades, accede a recursos y ayúdanos a crear un ecosistema más fuerte."
+    />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:locale" content="es_LA" />
+
     <title>{title}</title>
   </head>
   <body class="flex flex-col overflow-auto scroll-smooth">

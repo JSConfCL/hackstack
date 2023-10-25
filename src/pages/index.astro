@@ -4,12 +4,13 @@ import AnimatedSection from "../components/AnimatedSection.astro";
 import Tldr from "../components/tldr.astro";
 import FancyAnchor from "../components/FancyAnchor.astro";
 import FancyIcon from "../components/FancyIcon.astro";
+import Iniciativas from "../components/Iniciativas.astro";
 ---
 
 <Layout title="Welcome to HackStack">
   <main
     id="main"
-    class="w-full transition-all m-auto items-center selection:bg-purple-600 selection:text-white text-white leading-loose flex flex-col pt-[30vh] pb-[30vh] px-4 overflow-x-hidden"
+    class="w-full transition-all m-auto items-center selection:bg-purple-600 selection:text-white text-white leading-loose flex flex-col pt-[20vh] pb-[30vh] px-4 gap-20 overflow-x-hidden"
   >
     <div class="flex flex-col md:flex-row gap-16 px-8">
       <div class="flex flex-col gap-12">
@@ -27,13 +28,19 @@ import FancyIcon from "../components/FancyIcon.astro";
             <Tldr />
           </AnimatedSection>
         </div>
-        <div class="m-auto max-w-xl w-full flex flex-col">
-          <AnimatedSection>
-            <FancyAnchor link="/text" content="Conoce más" />
-          </AnimatedSection>
-        </div>
       </div>
-      <div class="justify-center items-center flex">
+      <div class="justify-center items-center hidden md:flex">
+        <AnimatedSection>
+          <FancyIcon />
+        </AnimatedSection>
+      </div>
+    </div>
+    <Iniciativas />
+    <div class="w-full flex flex-col items-center gap-16">
+      <AnimatedSection>
+        <FancyAnchor link="/text" content="Conoce más" />
+      </AnimatedSection>
+      <div class="justify-center items-center flex md:hidden">
         <AnimatedSection>
           <FancyIcon />
         </AnimatedSection>

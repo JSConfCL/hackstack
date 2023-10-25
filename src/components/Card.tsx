@@ -66,7 +66,7 @@ const Card = ({ icon, highlight, title, description }: Props) => {
       }}
       ref={ref}
       className={classNames(
-        "relative overflow-hidden max-w-sm h-full bg-gray-900 p-8 rounded-lg cursor-pointer transition-all duration-200 hover:shadow-xl hover:border-slate-800 border-transparent border border-solid",
+        "relative overflow-hidden max-w-sm h-full bg-gray-900 p-6 md:p-8 rounded-lg cursor-pointer transition-all duration-200 hover:border-slate-800 border-transparent border border-solid shadow-lg hover:shadow-2xl",
         {
           "selection:bg-red-500/20": highlight === "red",
           "selection:bg-green-500/20": highlight === "green",
@@ -75,8 +75,8 @@ const Card = ({ icon, highlight, title, description }: Props) => {
         },
       )}
     >
-      <div className="flex flex-col relative z-20">
-        <div className="p-3 w-fit mt-20 rounded-full bg-gray-800 border-gray-700 border">
+      <div className="flex-col relative z-20 hidden md:flex">
+        <div className="p-3 w-fit mt-2 md:mt-10 rounded-full bg-gray-800 border-gray-700 border">
           <Icon strokeWidth={1} color="white" size="20" absoluteStrokeWidth />
         </div>
         <h3 className=" relative mt-4 text-white font-semibold text-lg">
@@ -84,13 +84,26 @@ const Card = ({ icon, highlight, title, description }: Props) => {
         </h3>
         <p className=" relative mt-2 text-neutral-400 text-sm">{description}</p>
       </div>
+      <div className="flex-col relative gap-4 z-20 flex md:hidden">
+        <div className="flex flex-row gap-4 items-start">
+          <div className="aspect-square w-10 min-w-[2.5rem] rounded-full bg-gray-800 border-gray-700 border flex justify-center items-center">
+            <Icon strokeWidth={1} color="white" size="16" absoluteStrokeWidth />
+          </div>
+          <h3 className="relative  text-white font-semibold text-lg">
+            {title}
+          </h3>
+        </div>
+        {description && (
+          <p className=" relative text-neutral-400 text-sm">{description}</p>
+        )}
+      </div>
       <div className="absolute z-10 -top-8 -left-8 bottom-0 right-0 grid grid-cols-6 h-[500px] w-[500px] gap-1">
         {[...Array(42)].map((_, index) => (
           <div key={index} className="w-20 h-20 bg-gray-900 z-10" />
         ))}
         <div
           className={classNames(
-            "absolute bg-gradient-to-br transition-opacity  animate-spin-slow duration-500 ease-in-out filter blur-2xl w-16 h-24 translate-x-[-50%] translate-y-[-50%]",
+            "absolute bg-gradient-to-br transition-opacity animate-spin-slow duration-500 ease-in-out filter blur-2xl w-16 h-24 translate-x-[-50%] translate-y-[-50%]",
             {
               "opacity-0": !show,
               "opacity-100": show,
