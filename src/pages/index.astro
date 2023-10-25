@@ -1,122 +1,50 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Text from "../components/IntroText.astro";
-import Card from "../components/Card";
 import AnimatedSection from "../components/AnimatedSection.astro";
+import Tldr from "../components/tldr.astro";
+import FancyAnchor from "../components/FancyAnchor.astro";
+import FancyIcon from "../components/FancyIcon.astro";
+import Iniciativas from "../components/Iniciativas.astro";
 ---
-
-<style>
-  @keyframes rotate {
-    from {
-      rotate: 0deg;
-    }
-    50% {
-      scale: 1 1.66;
-    }
-    to {
-      rotate: 360deg;
-    }
-  }
-</style>
 
 <Layout title="Welcome to HackStack">
   <main
     id="main"
-    class="transition-all m-auto text-white text-lg leading-loose flex flex-col gap-48 pt-0 md:pt-10 xl:pt-16 pb-[30vh] px-4 overflow-x-hidden"
+    class="w-full transition-all m-auto items-center selection:bg-purple-600 selection:text-white text-white leading-loose flex flex-col pt-[20vh] pb-[30vh] px-4 gap-20 overflow-x-hidden"
   >
-    <div
-      class="m-auto max-w-xl flex flex-col gap-10 selection:bg-purple-600 selection:text-white"
-    >
-      <Text />
-    </div>
-    <div class="w-full px-8 flex flex-col justify-center">
-      <div class="max-w-2xl w-full m-auto">
+    <div class="flex flex-col md:flex-row gap-16 px-8">
+      <div class="flex flex-col gap-12">
+        <div class="m-auto max-w-xl w-full flex flex-col" transition:name="1">
+          <AnimatedSection>
+            <h1
+              class="text-5xl md:text-6xl lg:text-7xl font-bold font-callout drop-shadow-fancy-text"
+            >
+              HACKSTACK.
+            </h1>
+          </AnimatedSection>
+        </div>
+        <div class="m-auto max-w-xl w-full flex flex-col">
+          <AnimatedSection>
+            <Tldr />
+          </AnimatedSection>
+        </div>
+      </div>
+      <div class="justify-center items-center hidden md:flex">
         <AnimatedSection>
-          <hr class="border-gray-500 border" />
+          <FancyIcon />
         </AnimatedSection>
       </div>
     </div>
-    <div class="max-w-7xl w-full flex flex-col gap-10">
-      <div
-        class="flex gap-8 flex-row flex-wrap justify-center selection:bg-purple-600"
-      >
+    <Iniciativas />
+    <div class="w-full flex flex-col items-center gap-16">
+      <AnimatedSection>
+        <FancyAnchor link="/text" content="Conoce más" />
+      </AnimatedSection>
+      <div class="justify-center items-center flex md:hidden">
         <AnimatedSection>
-          <h2
-            class="transition-all text-2xl sm:text-3xl md:text-3xl xl:text-4xl text-center"
-          >
-            Conoce nuestras iniciativas
-          </h2>
-        </AnimatedSection>
-      </div>
-      <div class="flex gap-8 flex-row flex-wrap justify-center">
-        <AnimatedSection>
-          <Card
-            client:load
-            icon="money"
-            highlight="red"
-            title="Financiamiento a Comunidades"
-            description="Concurso abierto por hasta CLP 1.000.000 para apoyar iniciativas de tu comunidad."
-          />
-        </AnimatedSection>
-        <AnimatedSection>
-          <Card
-            client:load
-            icon="slack"
-            highlight="green"
-            title="Slack privado de HackStack"
-            description="Acceso para 3 personas de tu comunidad al Slack Workspace Pro de HackStack, para que puedas apoyarte junto a otros líderes de comunidades."
-          />
-        </AnimatedSection>
-        <AnimatedSection>
-          <Card
-            client:load
-            icon="mail"
-            highlight="blue"
-            title="Gmail & Google Workspace gratis"
-            description="Trae tu propio dominio, y te daremos acceso hasta 10 cuentas de correo y google workspaces para facilitar la comunicación y el trabajo con tu equipo."
-          />
-        </AnimatedSection>
-        <AnimatedSection>
-          <Card
-            client:load
-            icon="resources"
-            highlight="white"
-            title="(Coming Soon) Recursos y Playbooks."
-          />
-        </AnimatedSection>
-        <AnimatedSection>
-          <Card
-            client:load
-            icon="tickets"
-            highlight="white"
-            title="(Coming Soon) Plataforma gratuita de manejo de eventos y usuarios."
-          />
-        </AnimatedSection>
-        <AnimatedSection>
-          <Card
-            client:load
-            icon="announcements"
-            highlight="white"
-            title="(Coming Soon) Plataforma gratuita de Newsletter para tu comunidad."
-          />
+          <FancyIcon />
         </AnimatedSection>
       </div>
     </div>
-    <section class="translate-y-5 transition-all ease-in duration-700">
-      <div class="flex justify-center">
-        <a
-          href="/apply"
-          class="relative px-6 py-3 font-bold text-white rounded-lg group"
-        >
-          <span
-            class="absolute inset-0 w-full h-full transition duration-300 transform -translate-x-1 -translate-y-1 bg-purple-800 ease opacity-80 group-hover:translate-x-0 group-hover:translate-y-0"
-          ></span>
-          <span
-            class="absolute inset-0 w-full h-full transition duration-300 transform translate-x-1 translate-y-1 bg-pink-800 ease opacity-80 group-hover:translate-x-0 group-hover:translate-y-0 mix-blend-screen"
-          ></span>
-          <span class="relative">Únete aquí</span>
-        </a>
-      </div>
-    </section>
   </main>
 </Layout>

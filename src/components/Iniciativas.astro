@@ -1,0 +1,69 @@
+---
+import AnimatedSection from "./AnimatedSection.astro";
+import Card from "./Card";
+---
+
+<div class="px-2 md:px-0 max-w-6xl w-full flex flex-col gap-10">
+  <div class="flex flex-row flex-wrap justify-center selection:bg-purple-600">
+    <AnimatedSection>
+      <h2
+        class="transition-all text-2xl sm:text-2xl md:text-2xl xl:text-3xl text-center"
+      >
+        Conoce nuestras iniciativas
+      </h2>
+    </AnimatedSection>
+  </div>
+  <div class="flex gap-8 flex-row flex-wrap justify-center">
+    <AnimatedSection>
+      <Card
+        client:load
+        icon="money"
+        highlight="red"
+        title="Financiamiento a Comunidades"
+        description="Concurso abierto por hasta CLP 1.000.000 para apoyar iniciativas de tu comunidad."
+      />
+    </AnimatedSection>
+    <AnimatedSection>
+      <Card
+        client:load
+        icon="slack"
+        highlight="green"
+        title="Slack privado de HackStack"
+        description="Acceso para 3 personas de tu comunidad al Slack Workspace Pro de HackStack, para que puedas apoyarte junto a otros líderes de comunidades."
+      />
+    </AnimatedSection>
+    <AnimatedSection>
+      <Card
+        client:load
+        icon="mail"
+        highlight="blue"
+        title="Gmail & Google Workspace gratis"
+        description="Trae tu propio dominio, y te daremos acceso hasta 10 cuentas de correo y google workspaces para facilitar la comunicación y el trabajo con tu equipo."
+      />
+    </AnimatedSection>
+    <AnimatedSection>
+      <Card
+        client:load
+        icon="resources"
+        highlight="white"
+        title="(Coming Soon) Recursos y Playbooks."
+      />
+    </AnimatedSection>
+    <AnimatedSection>
+      <Card
+        client:load
+        icon="tickets"
+        highlight="white"
+        title="(Coming Soon) Plataforma gratuita de manejo de eventos y usuarios."
+      />
+    </AnimatedSection>
+    <AnimatedSection>
+      <Card
+        client:load
+        icon="announcements"
+        highlight="white"
+        title="(Coming Soon) Plataforma gratuita de Newsletter para tu comunidad."
+      />
+    </AnimatedSection>
+  </div>
+</div>
